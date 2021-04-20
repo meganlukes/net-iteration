@@ -6,6 +6,7 @@ using DotnetIteration.Models;
 namespace DotnetIteration
 {
 
+
     public static class Iteration
     {
         /*
@@ -32,7 +33,8 @@ namespace DotnetIteration
         //
         public static IEnumerable<string> Yelling(List<string> words)
         {
-            throw new System.NotImplementedException();
+            var newListOfWords = words.Select(word => word.ToUpper());
+            return newListOfWords;
         }
 
 
@@ -43,7 +45,10 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> Double(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var newListOfDoubledNumbers = numbers.Select(number => number * 2);
+            return newListOfDoubledNumbers;
+
+            //throw new System.NotImplementedException();
         }
 
 
@@ -55,7 +60,9 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> StringyIndexes(List<string> words)
         {
-            throw new System.NotImplementedException();
+            var newStringyIndexesList = words.Select((words, index) => $"{words} is at index {index}");
+            return newStringyIndexesList;
+            //throw new System.NotImplementedException();
         }
 
 
@@ -65,7 +72,9 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenSurvive(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var evenNumbersList = numbers.Where(number => number % 2 == 0);
+            return evenNumbersList;
+            //throw new System.NotImplementedException();
         }
 
 
@@ -76,7 +85,9 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenIndexedSurvive(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            var evenIndexesList = numbers.Where((number, index) => index % 2 == 0);
+            return evenIndexesList;
+            //throw new System.NotImplementedException();
         }
 
 
@@ -95,7 +106,11 @@ namespace DotnetIteration
         // 
         public static IEnumerable<string> BestMovieOfTheYear(List<Movie> movies, int yearToMatch)
         {
-            throw new System.NotImplementedException();
+            var okayestMovies = movies.Where(movie => movie.Year == yearToMatch && movie.Score > 90);
+            var okayestMovieTitles = okayestMovies.Select(movie => movie.Name);
+            return okayestMovieTitles;
+
+            //throw new System.NotImplementedException();
         }
 
 
@@ -105,7 +120,8 @@ namespace DotnetIteration
         // 
         public static bool EveryoneIsOdd(List<int> numbers)
         {
-            throw new System.NotImplementedException();
+            return numbers.All(digits => digits % 2 != 0);
+            //throw new System.NotImplementedException();
         }
 
 
@@ -116,7 +132,9 @@ namespace DotnetIteration
         // 
         public static string FindTheNeedle(List<string> sentences)
         {
-            throw new System.NotImplementedException();
+            var indexOfNeedleString = sentences.FindIndex(sentence => sentence.Contains("needle"));
+            return sentences[indexOfNeedleString];
+            //throw new System.NotImplementedException();
         }
 
 
@@ -127,7 +145,8 @@ namespace DotnetIteration
         // 
         public static int FindTheNeedleIndex(List<string> sentences)
         {
-            throw new System.NotImplementedException();
+            return sentences.FindIndex(sentence => sentence.Contains("needle"));
+            //throw new System.NotImplementedException();
         }
 
 
@@ -138,7 +157,10 @@ namespace DotnetIteration
         // 
         public static bool SomeoneToLove(List<string> words)
         {
-            throw new System.NotImplementedException();
+            //any boolean
+            var notThatFourLetterWord = words.Any(word => word.Length == 4);
+            return notThatFourLetterWord;
+            //throw new System.NotImplementedException();
         }
     }
 }
